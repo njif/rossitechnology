@@ -10,11 +10,14 @@
         <title>Index</title>
 
         <meta name="viewport" content="width=device-width">
-        
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen, projection, print">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <!--build:css css/bundle.min.css -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css" media="screen, projection, print">
+        <!--/build-->
 
-        <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -24,7 +27,8 @@
         <div class = "wrapper">
             <div class = "maincontent">
                 <div class="container">
-                	<!-- content_here -->
+                    <!-- content_here -->
+                	<!-- /content_here -->
                 </div>
             </div>
             <div class = "empty"></div>
@@ -33,9 +37,14 @@
         <!-- footer here -->
         <footer role = "contentinfo"></footer>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <!-- scripts_here -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
 
-        <script src="/js/main.js"></script>
+        <!--build:js assets/js/app.min.js-->
+        <script src="js/main.js"></script>
+        <!--/build -->
+
+        <!-- /scripts_here -->
     </body>
 </html>
