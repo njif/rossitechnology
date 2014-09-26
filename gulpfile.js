@@ -49,11 +49,12 @@ gulp.task('processStyles', ['buildLess', 'processCss']); // async: first, build 
 gulp.task('buildLess', buildLess);
 gulp.task('processCss', ['buildLess'], processCss);
 
-gulp.task('prepareProject', ['processImages', 'copyFonts', 'copyVendorJs', 'copyIE6']);
+gulp.task('prepareProject', ['processImages', 'copyFonts', 'copyVendorJs', 'copyIE6', 'copyFavicon']);
 gulp.task('processImages', processImages);
 gulp.task('copyFonts', copyFonts);
 gulp.task('copyVendorJs', copyVendorJs);
 gulp.task('copyIE6', copyIE6);
+gulp.task('copyFavicon', copyFavicon);
 
 gulp.task('watch', watch);
 gulp.task('watchHtml', watchHtml);
@@ -63,6 +64,7 @@ gulp.task('watchCss', watchCss);
 gulp.task('watchLess', watchLess);
 gulp.task('watchJs', watchJs);
 gulp.task('watchIE6', watchIE6);
+gulp.task('watchFavicon', watchFavicon);
 gulp.task('watchVendorJs', watchVendorJs);
 
 /********************************
@@ -171,6 +173,12 @@ function copyIE6() {
 		.pipe(notify(getNotifySettings('Copied ie6 files')));
 }
 
+function copyFavicon() {
+	gulp.src(['src/favicon.ico'])
+		.pipe(gulp.dest('./'))
+		.pipe(notify(getNotifySettings('Copied favicon')));
+}
+
 /* Watch tasks */
 
 function watchHtml() {
@@ -201,12 +209,16 @@ function watchIE6() {
 	gulp.watch('src/ie6/*', ['watchIE6']);
 }
 
+function watchFavicon() {
+	gulp.watch('src/favicon.ico', ['watchFavicon']);
+}
+
 function watchJs() {
 	gulp.watch('src/js/*.js', ['processJs']);
 }
 
 function watch() {
-	gulp.run(['watchHtml', 'watchImages', 'watchFonts', 'watchCss', 'watchJs', 'watchVendorJs', 'watchIE6', 'watchLess']);
+	gulp.run(['watchHtml', 'watchImages', 'watchFonts', 'watchCss', 'watchJs', 'watchVendorJs', 'watchIE6', 'watchFavicon', 'watchLess']);
 }
 
 function notifyChanges(event){
