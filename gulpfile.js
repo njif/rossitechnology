@@ -180,7 +180,7 @@ function processJs() {
 			'src/js/state.js',
         	'src/js/controls/popup.zamerschik.js',
         	'src/js/controls/popup.installment.js',
-        	'js/controls/popup.callback.js',
+        	'src/js/controls/popup.callback.js',
 			'src/js/controls/button.js',
 			'src/js/controls/menu.js',
 			'src/js/controls/slider.js',
