@@ -1351,10 +1351,6 @@ background-image: url('../img/bg/slider.jpg'); */
 
 /* --------- header --------- */
 
-.services__header {
-  position: relative;
-}
-
 .services__header-pic {
   padding-top: 98px;
   margin: 0px auto 85px auto;
@@ -1432,7 +1428,6 @@ background-image: url('../img/bg/slider.jpg'); */
 /* --------- content --------- */
 
 .services__content {
-  position: relative;
   /*  header  */
   /*  /header  */
   /*  aside  */
