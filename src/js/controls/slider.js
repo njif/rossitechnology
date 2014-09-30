@@ -64,9 +64,10 @@
 	/* --- Setup --- */
 
 	jbody = $('body');
-	jheader = jbody.find('.header:eq(0)');
+	jheader = jbody.find('.maincontent:eq(0)');
 
-	//jbody.addClass('js-page-scroll');
+	jbody.addClass('js-page-scroll');
+
 
 	$('.page__section:eq(0)').addClass('active');
 

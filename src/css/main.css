@@ -210,8 +210,6 @@ button:hover {
 /* --------- page sections --------- */
 .js-page-scroll .wrapper {
   width: 100%;
-  height: 100% !important;
-  max-height: 100%;
   overflow: hidden;
 }
 .js-page-scroll .maincontent {
@@ -593,63 +591,92 @@ button:hover {
   outline: none;
 }
 /* --------- /installment --------- */
-.header.small .header__container {
+.maincontent.small .header__overlay:before {
+  top: -95px !important;
+}
+.maincontent.small .header__overlay:after {
+  top: -96px !important;
+}
+.maincontent.small header__aside:before {
+  height: 240px;
+  bottom: -37px;
+}
+.maincontent.small .header__aside:after {
+  height: 439px;
+  bottom: -36px;
+}
+.maincontent.small .maincontent.small .header__aside:after {
+  height: 439px;
+  bottom: -34px;
+}
+.maincontent.small .header__container {
   padding-top: 5px;
 }
-.header.small .header__container:before {
+.maincontent.small .header__container header__aside:before {
+  height: 240px;
+  bottom: -37px;
+}
+.maincontent.small .header__container .header__aside:after {
+  height: 439px;
+  bottom: -34px;
+}
+.maincontent.small .header__container .header__overlay:before {
+  top: -95px !important;
+}
+.maincontent.small .header__container:before {
   bottom: 295px;
 }
-.header.small .header__container:after {
+.maincontent.small .header__container:after {
   top: 281px;
 }
-.header.small .lt-ie9 .header__container:before {
+.maincontent.small .header__container .lt-ie9 .header__container:before {
   bottom: 290px;
 }
-.header.small:before {
-  height: 281px;
+.maincontent.small .header__container:before {
+  height: 0;
 }
-.header.small .header__logo {
+.maincontent.small .header__container .header__logo {
   height: 245px;
 }
-.header.small .logo__img {
+.maincontent.small .header__container .logo__img {
   width: 100px;
   height: 153px;
 }
-.header.small .header__about {
+.maincontent.small .header__container .header__about {
   padding-left: 10px;
 }
-.header.small .header__nav {
+.maincontent.small .header__container .header__nav {
   padding-left: 10px;
 }
-.header.small .header__slogan {
+.maincontent.small .header__container .header__slogan {
   max-width: 250px;
 }
-.header.small .header__slogan .slogan__text {
+.maincontent.small .header__container .header__slogan .slogan__text {
   font-size: 35px;
   line-height: 35px;
 }
-.header.small .contacts__phone {
+.maincontent.small .header__container .contacts__phone {
   font-size: 35px;
   line-height: 35px;
   padding-top: 3px;
 }
-.header.small .contacts__callback {
+.maincontent.small .header__container .contacts__callback {
   height: 38px;
 }
-.header.small .contacts__callback-link {
+.maincontent.small .header__container .contacts__callback-link {
   font-size: 24px;
   line-height: 37px;
 }
-.header.small .header__nav {
+.maincontent.small .header__container .header__nav {
   margin-top: 25px;
 }
-.header.small .nav__list-submenu {
+.maincontent.small .header__container .nav__list-submenu {
   padding-top: 15px;
 }
-.header.small .header__installment {
+.maincontent.small .header__container .header__installment {
   margin-top: 100px;
 }
-.header.small .header__installment-button {
+.maincontent.small .header__container .header__installment-button {
   background: url('../img/elements/small-payment-installment.png') no-repeat;
   width: 206px;
   height: 150px;
