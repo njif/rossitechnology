@@ -1223,11 +1223,11 @@ button:hover {
 /* --------- /installment --------- */
 
 .maincontent.small .header__overlay:before {
-  top: -95px !important;
+  top: -196px !important;
 }
 
 .maincontent.small .header__overlay:after {
-  top: -96px !important;
+  top: -197px !important;
 }
 
 .maincontent.small header__aside:before {
@@ -1240,9 +1240,66 @@ button:hover {
   bottom: -36px;
 }
 
-.maincontent.small .maincontent.small .header__aside:after {
+.maincontent.small .header__aside:after {
   height: 439px;
   bottom: -34px;
+}
+
+.maincontent.small .header__container .header__slogan {
+  max-width: 1000px !important;
+}
+
+.maincontent.small .header__container .contacts__callback-link {
+  font-size: 13px !important;
+  line-height: 26px !important;
+}
+
+.maincontent.small .header__container .contacts__callback {
+  height: 25px;
+}
+
+.maincontent.small .header__nav {
+  margin-top: -24px;
+}
+
+.maincontent.small .header__container .header__nav {
+  margin-top: -24px !important;
+}
+
+.maincontent.small .header__aside .zamerschik__button {
+  height: 40px;
+  font-size: 14px;
+  opacity: 0.67;
+}
+
+.maincontent.small .header__aside .zamerschik__button:hover {
+  opacity: 1;
+}
+
+.maincontent.small .header__nav .nav__list-main .nav__link {
+  height: 30px;
+}
+
+.maincontent.small .header__nav .nav__list-submenu {
+  font-size: 14px;
+  line-height: 34px;
+}
+
+.maincontent.small .header__nav .nav__list-main {
+  font-size: 21px;
+  line-height: 21px;
+}
+
+.maincontent.small .header__installment-button {
+  opacity: 0.67;
+}
+
+.maincontent.small .header__installment-button:hover {
+  opacity: 1;
+}
+
+.maincontent.small .maincontent.small .header__container .header__installment {
+  margin-top: 50px;
 }
 
 .maincontent.small .header__container {
@@ -1297,7 +1354,7 @@ button:hover {
 }
 
 .maincontent.small .header__container .header__slogan {
-  max-width: 250px;
+  /* max-width: @header-small-slogan-width; */
 }
 
 .maincontent.small .header__container .header__slogan .slogan__text {
