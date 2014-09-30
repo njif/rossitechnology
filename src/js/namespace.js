@@ -1,0 +1,1 @@
+window.rossi = window.rossi || {};

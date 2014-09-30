@@ -1,0 +1,161 @@
+.benefits {
+	padding-bottom: 33px;
+	background:url('../img/bg/benefits-bg.jpg') no-repeat;
+	background-repeat: no-repeat;
+	background-size: cover; 
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bg/benefits-bg.jpg', sizingMethod='scale')"; // Hack for IE8 
+}
+
+/* --- header --- */
+.benefits__header {
+
+	h3 {
+		margin: 0;
+		margin-left: 745px;
+		color: #6a2929;
+		font-size: 36px;
+		padding-top: 65px;
+	}
+
+	h4 {
+		font-family: 'OpenSans-Light';
+		margin-bottom: 45px;
+		margin-left: 550px;
+		color: #bcbcbc;
+		font-size: 24px;
+		margin-top: 13px;
+	}
+}
+
+/* --- /header --- */
+
+.benefits__divider {
+	.divider(#6a2929, 550px, 0, 1px);
+	position: absolute;
+	right: 200px;
+	margin: 0;
+}
+
+/* --- thesesList --- */
+.benefits__list-theses {
+
+	position: relative;
+	margin-bottom: 45px;
+	margin-top: 107px;
+	.clearfix;
+
+	.theses__item {
+
+		position: relative;
+
+		.item__title {
+			font-family: 'OpenSans-Bold';
+			margin-bottom: 33px;
+			color: #222;
+			font-size: 24px;
+			line-height: 36px;
+		}
+
+		.item__description {
+			font-family: 'OpenSans-Regular';
+			color: #222;
+			font-size: 16px;
+			line-height: 36px;
+		}
+
+		&.item-1:after {
+
+			content: '';
+			display: inline-block;
+			width: 190px;
+			height: 170px;
+			position: absolute;
+			top: 55px;
+			left: 537px;
+			background: url('../img/icons/benefits__list-theses-1.png') no-repeat;
+		}
+
+		&.item-1, &.item-3 {
+			float: left;
+			width: 415px;
+			padding-top: 14px;
+			margin: 0px 0 55px 45px;
+			text-align: right;
+		}
+		&.item-2 {
+			float: right;
+			width: 448px;
+			padding-top: 14px;
+			margin: 295px 0 53px 0px;
+			text-align: left;
+
+			&:before {
+
+				content: '';
+				display: inline-block;
+				width: 51px;
+				height: 84px;
+				position: absolute;
+				top: -38px;
+				left: -177px;
+				background: url('../img/icons/arrow-topright-to-bottomleft.png') no-repeat;
+				
+			}
+
+			&:after {
+
+				content: '';
+				display: inline-block;
+				width: 119px;
+				height: 182px;
+				position: absolute;
+				top: 78px;
+				left: -288px;
+				background: url('../img/icons/benefits__list-theses-2.png') no-repeat;
+				
+			}
+		}
+
+		&.item-3 {
+			margin-top: 310px;
+			&:before {
+
+				content: '';
+				display: inline-block;
+				width: 51px;
+				height: 84px;
+				position: absolute;
+				top: -25px;
+				left: 490px;
+				background: url('../img/icons/arrow-topleft-bottomright.png') no-repeat;
+				
+			}
+
+			&:after {
+
+				content: '';
+				display: inline-block;
+				width: 163px;
+				height: 169px;
+				position: absolute;
+				top: 71px;
+				left: 559px;
+				background: url('../img/icons/benefits__list-theses-3.png') no-repeat;
+				
+			}
+		}
+
+		&.item-4 {
+			.clearfix;
+			clear: both;
+			padding-top: 30px;
+			text-align: center;
+			font-size: 36px !important;
+			line-height: 40px;
+			display: inline-block;
+			margin: 35px 10% 0 10%;
+		}
+	}
+}
+
+/* --- /thesesList --- */

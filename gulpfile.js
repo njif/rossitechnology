@@ -21,6 +21,12 @@ var gulp = require('gulp'),
 	rename = require("gulp-rename"),
 	notify = require("gulp-notify"),
 	plumber = require('gulp-plumber'),
+	gulpif = require('gulp-if'),
+
+	imagemin = require('gulp-imagemin'),
+	pngcrush = require('imagemin-pngcrush'),
+
+	connect = require('gulp-connect'),
 
 	pkg = require('./package.json'),
 
@@ -30,12 +36,30 @@ var gulp = require('gulp'),
   ' */',
   ''].join('\n');
 
+var config = {
+	image: {
+		minimize: true // https://github.com/sindresorhus/gulp-imagemin
+	},
+	css: {
+		minify: false 	// TODO: DO NOT WORK WITH MIXIN
+						//.inlineblock (display: inline-block removed after minification).
+						// NEED SOME FIX!
+	},
+	server: {
+		copy: true, // Copy to local server
+		path: 'c:/WebServers/home/localhost/warproject'
+	}
+};
+
 
 /********************************
 *********************************
 			TASKS
 *********************************
 *********************************/
+
+gulp.task('help', help);
+gulp.task('connectToDevServer', connectToDevServer);
 
 gulp.task('default', ['build', 'watch']);
 
@@ -73,6 +97,12 @@ gulp.task('watchVendorJs', watchVendorJs);
 *********************************
 *********************************/
 
+/* Help */
+
+function help(){
+	console.log(command.help());
+}
+
 /* Helpers */
 
 function getNotifySettings(message) {
@@ -105,34 +135,56 @@ function processHtml() {
 		.pipe(plumber())
 		.pipe(processhtml('index.html'))
 		.pipe(gulp.dest('./'))
-		.pipe(notify(getNotifySettings('Processed html')));
+		.pipe(gulpif(config.server.copy, gulp.dest(config.server.path)))
+		.pipe(notify(getNotifySettings('Processed html')))
+		.pipe(connect.reload());
+
 }
 
 function buildLess() {
 	return gulp.src('src/css/main.less')
 		.pipe(less())
 		.pipe(gulp.dest('src/css'))
-		.pipe(notify(getNotifyDetailedSettings('Builded LESS')));
+		.pipe(gulpif(config.server.copy, gulp.dest(config.server.path + '/src/css')))
+		.pipe(notify(getNotifyDetailedSettings('Builded LESS')))
+		.pipe(connect.reload());
 }
 
 function processCss() {
 	gulp.src([
-			'src/css/**/*.css'
+			'src/css/normalize.css',
+			'src/css/main.css',
 		]).pipe(plumber())
 		.pipe(autoprefixer({
 			browsers: ['last 2 versions'],
 			cascade: false
 		}))
 		.pipe(concatCss("bundle.css"))
-		.pipe(minifyCss())
+		.pipe(gulpif(config.css.minify, minifyCss()))
 		.pipe(rename('bundle.min.css'))
 		.pipe(header(banner, { pkg : pkg } ))
 		.pipe(gulp.dest('css'))
-		.pipe(notify(getNotifyDetailedSettings('Processed css')));
+		.pipe(gulpif(config.server.copy, gulp.dest(config.server.path + '/css')))
+		.pipe(notify(getNotifyDetailedSettings('Processed css')))
+		.pipe(connect.reload());
 }
 
 function processJs() {
+	
 	gulp.src([
+			'src/js/plugins/jquery.mousewheel.js',
+			'src/js/plugins/pxgradient-1.0.3.js',
+			'src/js/namespace.js',
+			'src/js/plugins/jstools.js',
+			'src/js/eventlist.js',
+			'src/js/state.js',
+        	'src/js/controls/popup.zamerschik.js',
+        	'src/js/controls/popup.installment.js',
+        	'js/controls/popup.callback.js',
+			'src/js/controls/button.js',
+			'src/js/controls/menu.js',
+			'src/js/controls/slider.js',
+			'src/js/app.js',
 			'src/js/main.js'
 		]).pipe(plumber())
 		.pipe(jshint())
@@ -141,15 +193,24 @@ function processJs() {
 		.pipe(concat('app.min.js'))
 		.pipe(header(banner, { pkg : pkg } ))
 		.pipe(gulp.dest('js'))
-		.pipe(notify(getNotifyDetailedSettings('Processed js')));
+		.pipe(gulpif(config.server.copy, gulp.dest(config.server.path + '/js')))
+		.pipe(notify(getNotifyDetailedSettings('Processed js')))
+		.pipe(connect.reload());
 }
 
 function processImages() {
 	gulp.src('src/img/**/*.*')
 		.pipe(plumber())
 		.pipe(gulp.dest('img'))
-		// TODO: add some optimizer
-		.pipe(notify(getNotifyDetailedSettings('Processed Images')));
+		.pipe(gulpif(config.image.minimize, imagemin({
+			progressive: true,
+			svgoPlugins: [{removeViewBox: false}],
+			use: [pngcrush()]
+		})))
+		.pipe(gulpif(config.image.minimize, gulp.dest('img')))
+		.pipe(gulpif(config.server.copy, gulp.dest(config.server.path + '/img')))
+		.pipe(notify(getNotifyDetailedSettings('Processed Images')))
+		.pipe(connect.reload());
 }
 
 /* Copy only tasks */
@@ -158,25 +219,39 @@ function copyFonts() {
 	gulp.src('src/css/fonts/**/*.*')
 		.pipe(plumber())
 		.pipe(gulp.dest('css/fonts'))
-		.pipe(notify(getNotifySettings('Copied Fonts')));
+		.pipe(gulpif(config.server.copy, gulp.dest(config.server.path + '/css/fonts')))
+		.pipe(notify(getNotifySettings('Copied Fonts')))
+		.pipe(connect.reload());
 }
 
 function copyVendorJs() {
+
+	gulp.src(['node_modules/jquery-mousewheel/jquery.mousewheel.js '])
+		.pipe(gulp.dest('src/js/plugins/'))
+		.pipe(gulpif(config.server.copy, gulp.dest(config.server.path + '/src/js/plugins/')))
+		.pipe(notify(getNotifyDetailedSettings('Copied js plugins')));
+
 	gulp.src(['src/js/vendor/*.js'])
 		.pipe(gulp.dest('js/vendor'))
-		.pipe(notify(getNotifySettings('Copied vendor js')));
+		.pipe(gulpif(config.server.copy, gulp.dest(config.server.path + '/js/vendor')))
+		.pipe(notify(getNotifySettings('Copied vendor js')))
+		.pipe(connect.reload());
 }
 
 function copyIE6() {
 	gulp.src(['src/ie6/**/*'])
 		.pipe(gulp.dest('ie6'))
-		.pipe(notify(getNotifySettings('Copied ie6 files')));
+		.pipe(gulpif(config.server.copy, gulp.dest(config.server.path + '/ie6')))
+		.pipe(notify(getNotifySettings('Copied ie6 files')))
+		.pipe(connect.reload());
 }
 
 function copyFavicon() {
 	gulp.src(['src/favicon.ico'])
 		.pipe(gulp.dest('./'))
-		.pipe(notify(getNotifySettings('Copied favicon')));
+		.pipe(gulpif(config.server.copy, gulp.dest(config.server.path)))
+		.pipe(notify(getNotifySettings('Copied favicon')))
+		.pipe(connect.reload());
 }
 
 /* Watch tasks */
@@ -194,11 +269,11 @@ function watchFonts() {
 }
 
 function watchLess() {
-	gulp.watch('src/css/*.less', ['buildLess']);
+	gulp.watch(['src/css/*.less', 'src/css/**/*.less', 'src/css/**/**/*.less'], ['buildLess']);
 }
 
 function watchCss() {
-	gulp.watch('src/css/*.css', ['copyCss']);
+	gulp.watch('src/css/*.css', ['processCss']);
 }
 
 function watchVendorJs() {
@@ -214,7 +289,7 @@ function watchFavicon() {
 }
 
 function watchJs() {
-	gulp.watch('src/js/*.js', ['processJs']);
+	gulp.watch('src/js/*.js', ['processScripts']);
 }
 
 function watch() {
@@ -224,3 +299,10 @@ function watch() {
 function notifyChanges(event){
 	notify(event.path+' -> '+event.type);
 }
+
+function connectToDevServer() {
+	connect.server({
+		root: './src',
+		livereload: true
+	});
+};

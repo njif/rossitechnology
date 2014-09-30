@@ -1,0 +1,88 @@
+.header.small {
+
+	.header__container {
+		padding-top: @header-small-container-padding-top;
+
+		&:before {
+			bottom: @header-small-height + 5px;
+		}
+
+		&:after {
+			top: @header-small-height - 9px;
+		}
+	}
+	// HACK FOR IE (pixel hunting)
+	.lt-ie9 .header__container {
+		&:before {
+			bottom: @header-small-height;
+		}
+	}
+
+	&:before {
+		height: @header-small-height - 9px;
+	}
+
+	.header__logo {
+		height: @header-logo-height;
+	}
+
+	.logo__img {
+		width: @header-small-logo-width;
+		height: @header-small-logo-height;
+	}
+
+	.header__about {
+
+		padding-left: @header-small-about-paddingleft;
+
+	}
+
+	.header__nav {
+		padding-left: @header-small-about-paddingleft;
+	}
+
+	.header__slogan {
+
+		max-width: @header-small-slogan-width;
+
+		.slogan__text {
+			font-size: @header-small-slogan-fontsize;
+			line-height: @header-small-slogan-fontsize;
+		}
+
+	}
+
+	.contacts__phone {
+		font-size: @header-small-contacts-phone-fontsize;
+		line-height: @header-small-contacts-phone-fontsize;
+		padding-top: @header-small-contacts-phone-paddingtop;
+	}
+
+	.contacts__callback {
+		height: @header-small-contacts-callback;
+	}
+
+	.contacts__callback-link {
+		font-size: @header-small-contacts-callback-link-fontsize;
+		line-height: @header-small-contacts-callback-link-lineheight
+	}
+
+	.header__nav {
+		margin-top: @header-small-nav-margintop;
+	}
+
+	.nav__list-submenu {
+		padding-top: @header-small-nav-list-submenu-paddingtop;
+	}
+
+	.header__installment {
+		margin-top: @header-small-installment-margintop;
+	}
+
+	.header__installment-button {
+		background: url('../img/elements/small-payment-installment.png') no-repeat;	
+		width: @header-small-installment-button-width;
+		height: @header-small-installment-button-height;
+	}
+
+}

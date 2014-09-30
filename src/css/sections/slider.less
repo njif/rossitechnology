@@ -1,0 +1,55 @@
+.slider {
+	height: 924px;
+/* 	background: center center/cover no-repeat #222;
+background-image: url('../img/bg/slider.jpg'); */
+
+	background: #fff;
+	background-image: url("../img/bg/slider.jpg");    
+	background-repeat: no-repeat;
+	background-size: cover; 
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bg/slider.jpg', sizingMethod='scale')"; // Hack for IE8
+	margin:0;
+	padding: 0;     
+}
+
+/* --------- SliderList --------- */
+
+.slider__list-slides {
+
+	.slides__item {
+		max-width: 245px;
+		max-height: 160px;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	.item-text {
+		position: absolute;
+		top: 0;
+		left: -9999px;
+	}
+}
+
+/* --------- /SliderList --------- */
+
+
+/* --------- SliderPaginator --------- */
+
+.slider__list-pages {
+
+	.pages__item {
+
+		&.active {
+
+			
+
+		}
+
+	}
+}
+
+/* --------- /SliderPaginator --------- */

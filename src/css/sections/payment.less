@@ -1,0 +1,216 @@
+.payment {
+
+    &:before {
+        .inlineblock;
+        content: '';
+        background: #fff;
+        content: '';
+        width: 100%;
+        height: 185px;
+        background:url('../img/bg/payment__before.png') no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover; 
+        -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bg/payment__before.png', sizingMethod='scale')"; // Hack for IE8 
+        margin:0;
+        padding: 0; 
+        margin-top: -36px;
+
+    }
+
+    width: 100%;
+    height: 1004px;
+    background: #fff;
+    background-image: url("../img/bg/payment__bg.png");    
+    background-repeat: no-repeat;
+    background-size: cover; 
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bg/payment__bg.png', sizingMethod='scale')"; // Hack for IE8
+    margin:0;
+    padding: 0; 
+    border-bottom: 2px solid #64201c;
+
+}
+
+
+/* thesesList */
+
+.payment__list-theses {
+    color: #fff;
+    margin-left: 45px;
+    margin-bottom: 40px;
+    .clearfix;
+
+    &:hover { // preload picture
+        background: url('../img/elements/payment-list-encoder.png') -10000px -10000px no-repeat;
+    }
+
+.theses__item {
+
+    .clearfix;
+
+    .item__title-num {
+        font-size: 72px;
+        font-family: "OpenSans-Bold";
+        font-style: italic;
+        float: left;
+        margin-right: 55px;
+    }
+
+    &.item-1, &.item-2 {
+
+        height: 115px;
+
+        .item__description {
+            font-size: 24px;
+            width: 725px;
+            margin: 20px 0 55px 45px;
+        }
+    }
+
+    &.item-1 {
+        padding-top: 14px;
+    }
+
+
+    &.item-2 {
+        padding-top: 0px;
+    }
+
+    &.item-3, &.item-4 {
+        
+        text-align: center;
+        float: left;
+        width: 350px;
+        .item__title {
+            font-family: "OpenSans-Semibold";
+            font-size: 30px;
+            margin: 20px 0 10px 0;        
+        }
+
+        .item__description {
+            font-size: 18px;
+            line-height: 30px;
+        }
+
+        &:before {
+            .inlineblock;
+            content: '';
+            background: #fff;
+            content: '';
+            width: 29px;
+            height: 47px;
+            background:url('../img/elements/payment-rl-arrow.png') no-repeat;
+            background-repeat: no-repeat;
+            margin:0;
+            padding: 0; 
+            margin: -18px;
+
+        }
+    }
+
+    &.item-3:before {
+        background:url('../img/elements/payment-rl-arrow.png') no-repeat;
+    }
+
+    &.item-4:before {
+        background:url('../img/elements/payment-lr-arrow.png') no-repeat;
+    }
+
+    &.item-5 {
+        .transition(all 0.3s linear);
+        float: right;
+        text-align: center;
+        width: 400px;
+        margin-top: -100px;
+        .item__pic {
+            margin: -34px 90px 50px 50px;
+            width: 261px;
+            height: 190px;
+            background: url('../img/elements/payment-list-encoder-transparent.png') no-repeat;
+
+            &:hover {
+                background: url('../img/elements/payment-list-encoder.png') no-repeat;
+            }
+        }
+
+        .item__description {
+            font-size: 18px;
+            display: inline-block;
+            text-align: center;
+            width: 150px;
+        }
+
+    }
+
+}
+
+}
+
+
+
+
+/* /thesesList */
+
+.payment__divider {
+
+    .divider(#ffffff, 940px, auto,1px);
+    clear: both;
+}
+
+
+/* logos */
+
+.payment__logos {
+
+    margin-top: 5px;
+
+    .logos__list {
+            .clearfix;
+
+            width: 910px;
+            margin: 0 auto;
+    }
+
+    .logos__item {
+            float: left;
+            padding: 25px;
+    }
+
+    .item__link {
+
+    }        
+}
+
+
+
+/* /logos */
+
+
+/* documents */
+
+.payment__documents {
+    border: 1px dashed ##212121;
+    .border-radius(15px);
+    font-family: "OpenSans-Semibold";
+    font-size: 30px;
+    color: #ffffff;
+    text-align: center;
+    width: 715px;
+    height: 93px;
+    border: 1px dashed #ffffff;
+    margin: 57px auto 0 auto;
+    padding-top: 53px;
+}
+
+.payment__documents-pic {
+    .inlineblock;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.payment__documents-text {
+    .inlineblock;
+    display: inline-block;
+
+}
+
+/* /documents */

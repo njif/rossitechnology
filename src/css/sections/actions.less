@@ -1,0 +1,159 @@
+.actions {
+	padding-bottom: 95px;
+	.clearfix;
+}
+
+/* --- header --- */
+.actions__header {
+
+	text-align: right;
+
+	h3 {
+		margin: 0;
+		margin-left: 745px;
+		color: #6a2929;
+		font-size: 36px;
+		padding-top: 80px;
+	}
+
+	h4 {
+		font-family: 'OpenSans-Light';
+		margin-bottom: 38px;
+		margin-left: 550px;
+		color: #bcbcbc;
+		font-size: 24px;
+		margin-top: 13px;
+	}
+}
+
+/* --- /header --- */
+
+.actions__divider {
+
+	.divider(#6a2929, 550px, 0, 1px);
+	position: absolute;
+	right: 90px;
+	margin: 0;
+}
+
+/* --- thesesList --- */
+.actions__list {
+
+    float: left;
+    clear: both;
+    height: 230px;
+
+    .clearfix;
+    clear: both;
+
+    margin-top: 68px;
+    margin-right: 60px;
+
+	.action__item {
+
+        width: 130px;
+        float: left;
+        height: 85px;
+        padding-right: 60px;
+        position: relative;
+        cursor: pointer;
+
+		.item__text {
+            text-align: center;
+            margin-top: 18px;
+
+            font-size: 18px;
+            font-family: 'OpenSans-Light';
+            font-style: italic;
+		}
+
+        .item__pic {
+            width: 120px;
+            height: 115px;
+            border: 2px solid #dac8c8;
+
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+
+        }
+
+
+		&.item-1 {
+		}
+
+		&.item-2 {
+	
+		}
+
+		&.item-3 {
+
+		}
+
+		&.item-4 {
+
+
+		}
+	}
+}
+
+/* --- /thesesList --- */
+
+.actions__countdown {
+
+	.vertical-gradient(#501a19, #752723 53%, #93384c, 180deg);
+	width: 335px;
+	height: 115px;
+	display: inline-block;
+	float: right;
+
+	color: #fff;
+
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	margin-top: 70px;
+
+
+	.countdown__hours, .countdown__minutes, .countdown__secundes {
+
+		.inlineblock;
+		display: inline-block;
+		width: 105px;
+		height: 115px;
+	}
+
+	.countdown__number {
+
+		font-family: "OpenSans-Bold";
+
+		font-size: 48px;
+		line-height: 90px;
+		font-weight: bold;
+	}
+
+	.countdown__text {
+
+		font-family: "OpenSans-Regular";
+		margin-top: -14px;
+
+	}
+
+	.countdown__hours, .countdown__minutes {
+
+		position: relative;
+		
+		&:after {
+			content: ':';
+			font-family: "OpenSans-Bold";
+			font-size: 48px;
+			font-weight: bold;
+			display: inline-block;
+			position: absolute;
+			top: 13px;
+			right: -6px;;
+		}
+	}
+
+}
