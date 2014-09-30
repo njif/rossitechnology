@@ -219,9 +219,6 @@ button:hover {
   -o-transition: top 1s;
   transition: top 1s;
 }
-.js-page-scroll .page__section {
-  margin: 385px 0 385px 0;
-}
 .js-page-scroll .page__section.slider {
   margin-top: 0;
 }
@@ -785,6 +782,7 @@ background-image: url('../img/bg/slider.jpg'); */
 /* --------- navigation --------- */
 .services__nav .nav__list-services {
   font-size: 25px;
+  height: 50px;
 }
 .services__nav .nav__item {
   display: inline-block;
@@ -863,23 +861,10 @@ background-image: url('../img/bg/slider.jpg'); */
   color: #b2b2b2;
   font-family: "OpenSans-Light";
   font-size: 24px;
+  display: inline-block;
 }
-.services__content .services__content-aside {
-  *zoom: expression(this.runtimeStyle.zoom='1', this.appendChild(document.createElement('br')).style.cssText='clear:both;font:0/0 serif');
-  zoom: 1 !ie;
-  position: absolute;
-  right: 85px;
-  top: 150px;
-}
-.services__content .services__content-aside:before,
-.services__content .services__content-aside:after {
-  content: "";
-  display: table;
-}
-.services__content .services__content-aside:after {
-  clear: both;
-}
-.services__content .services__content-aside .services__content-button {
+.services__content .services__content-header .services__content-button {
+  display: inline-block;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
@@ -908,6 +893,22 @@ background-image: url('../img/bg/slider.jpg'); */
   color: #ffffff;
   width: 295px;
   height: 56px;
+  float: right;
+}
+.services__content .services__content-aside {
+  *zoom: expression(this.runtimeStyle.zoom='1', this.appendChild(document.createElement('br')).style.cssText='clear:both;font:0/0 serif');
+  zoom: 1 !ie;
+  position: absolute;
+  right: 85px;
+  top: 150px;
+}
+.services__content .services__content-aside:before,
+.services__content .services__content-aside:after {
+  content: "";
+  display: table;
+}
+.services__content .services__content-aside:after {
+  clear: both;
 }
 .services__content .services__divider {
   *zoom: expression(this.runtimeStyle.zoom='1', this.appendChild(document.createElement('br')).style.cssText='clear:both;font:0/0 serif');
